@@ -103,8 +103,8 @@ export default function Index() {
                   key={car.id}
                   className="absolute bottom-20 w-80"
                   style={{
-                    animation: `drive-road ${8 + index * 2}s linear infinite`,
-                    animationDelay: `${index * 2.5}s`
+                    animation: 'drive-road 12s linear infinite',
+                    animationDelay: `${index * 4}s`
                   }}
                 >
                   <div className="relative">
