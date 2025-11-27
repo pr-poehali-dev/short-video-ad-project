@@ -100,6 +100,10 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.5)' },
 					'50%': { boxShadow: '0 0 40px rgba(14, 165, 233, 0.8)' }
+				},
+				'drive-road': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100vw)' }
 				}
 			},
 			animation: {
@@ -108,7 +112,8 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'slide-right': 'slide-right 0.7s ease-out',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'drive-road': 'drive-road 3s linear infinite'
 			}
 		}
 	},

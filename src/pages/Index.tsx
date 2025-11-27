@@ -86,46 +86,49 @@ export default function Index() {
       )}
 
       {currentSection === 1 && (
-        <section className="min-h-screen flex items-center justify-center px-4 py-20">
-          <div className="max-w-7xl w-full">
-            <h2 className="text-5xl md:text-7xl font-black text-center mb-16 animate-fade-in">
+        <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+          
+          <div className="w-full relative z-10">
+            <h2 className="text-5xl md:text-7xl font-black text-center mb-20 animate-fade-in">
               НАШ <span className="text-primary">АВТОПАРК</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            
+            <div className="relative h-96 w-full">
+              <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-muted-foreground/30 to-transparent" />
+              <div className="absolute bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-muted-foreground/50 to-transparent" />
+              
               {cars.map((car, index) => (
-                <Card 
-                  key={car.id} 
-                  className="bg-card border-2 border-primary/20 overflow-hidden hover:border-primary transition-all hover:scale-105 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                <div
+                  key={car.id}
+                  className="absolute bottom-20 w-80"
+                  style={{
+                    animation: `drive-road ${8 + index * 2}s linear infinite`,
+                    animationDelay: `${index * 2.5}s`
+                  }}
                 >
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={car.image} 
+                  <div className="relative">
+                    <img
+                      src={car.image}
                       alt={car.name}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      className="w-full h-48 object-contain drop-shadow-2xl"
                     />
-                    <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">
-                      {car.category}
-                    </Badge>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-2">{car.name}</h3>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {car.features.map((feature) => (
-                        <Badge key={feature} variant="outline">
-                          {feature}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="flex items-baseline justify-between">
-                      <div>
+                    <div className="mt-4 text-center bg-card/90 backdrop-blur-sm rounded-lg p-4 border-2 border-primary/30">
+                      <h3 className="text-xl font-bold mb-1">{car.name}</h3>
+                      <div className="flex items-baseline justify-center gap-2">
                         <span className="text-4xl font-black text-primary">{car.price}</span>
-                        <span className="text-muted-foreground ml-2">₽/сутки</span>
+                        <span className="text-sm text-muted-foreground">₽/сутки</span>
                       </div>
                     </div>
                   </div>
-                </Card>
+                </div>
               ))}
+            </div>
+            
+            <div className="text-center mt-32 animate-fade-in">
+              <p className="text-2xl text-muted-foreground font-bold">
+                Выбирай свой автомобиль
+              </p>
             </div>
           </div>
         </section>
