@@ -60,7 +60,7 @@ export default function Index() {
     setIsVisible(true);
     const timer = setInterval(() => {
       setCurrentSection((prev) => (prev + 1) % 5);
-    }, 5000);
+    }, 20000);
     return () => clearInterval(timer);
   }, []);
 
@@ -103,8 +103,8 @@ export default function Index() {
                   key={car.id}
                   className="absolute bottom-20 w-80"
                   style={{
-                    animation: 'drive-road 12s linear infinite',
-                    animationDelay: `${index * 4}s`
+                    animation: 'drive-road 18s linear infinite',
+                    animationDelay: `${index * 6}s`
                   }}
                 >
                   <div className="relative">
